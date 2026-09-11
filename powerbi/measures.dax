@@ -1,0 +1,29 @@
+Revenue := SUM('Fact Orders'[payment_value])
+
+Orders := DISTINCTCOUNT('Fact Orders'[order_id])
+
+Customers := DISTINCTCOUNT('Fact Orders'[customer_unique_id])
+
+Average Order Value := DIVIDE([Revenue], [Orders])
+
+On-Time Delivery Rate := AVERAGE('Fact Orders'[delivered_on_time])
+
+Average Review Score := AVERAGE('Fact Orders'[review_score])
+
+Freight Share :=
+DIVIDE(
+    SUM('Fact Orders'[freight_value]),
+    SUM('Fact Orders'[item_revenue]) + SUM('Fact Orders'[freight_value])
+)
+
+Revenue Previous Month :=
+CALCULATE([Revenue], DATEADD('Date'[Date], -1, MONTH))
+
+Revenue MoM % :=
+DIVIDE([Revenue] - [Revenue Previous Month], [Revenue Previous Month])
+
+Experiment Absolute Lift :=
+MAX('Experiment Metrics'[treatment_rate]) - MAX('Experiment Metrics'[control_rate])
+
+Experiment Relative Lift :=
+DIVIDE([Experiment Absolute Lift], MAX('Experiment Metrics'[control_rate]))

@@ -1,0 +1,31 @@
+name: Data quality maintenance
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * 1"
+
+jobs:
+  maintenance-contract-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - name: Validate data contract YAML
+        run: |
+          python - <<'PY'
+          import pathlib
+          import yaml
+
+          path = pathlib.Path("config/data_contracts.yaml")
+          data = yaml.safe_load(path.read_text())
+          assert data["tables"]
+          for name, table in data["tables"].items():
+              assert table["file"], name
+              assert table["primary_key"], name
+              assert table["required_columns"], name
+          print(f"Validated {len(data['tables'])} table contracts")
+          PY

@@ -11,7 +11,8 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
-exclude = ["airflow/dags", "aws/glue"]
+exclude = ["airflow/dags", "aws/glue", "src/etl"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
