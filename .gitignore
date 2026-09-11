@@ -1,0 +1,28 @@
+# Data and artifacts
+data/raw/
+data/lakehouse/
+data/exports/
+artifacts/
+*.parquet
+*.csv
+*.zip
+
+# Credentials
+.env
+.kaggle/
+*.pem
+terraform.tfstate*
+.terraform/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
