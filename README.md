@@ -136,10 +136,6 @@ See [`docs/aws_deployment.md`](docs/aws_deployment.md). The Terraform stack prov
 - **Power BI:** use the Athena connector or local exports; apply [`powerbi/power_query.m`](powerbi/power_query.m) and [`powerbi/measures.dax`](powerbi/measures.dax).
 - **Streamlit:** a lightweight, code-reviewed dashboard for immediate portfolio demonstration.
 
-## Resume-ready description
-
-> Built an end-to-end e-commerce analytics platform using PySpark/Spark SQL, AWS S3/Glue/Athena, Airflow, Tableau, Power BI, and Streamlit. Designed bronze-silver-gold ETL models, automated data-quality checks and maintenance, and implemented an A/B testing framework with SRM diagnostics, confidence intervals, lift estimation, and guardrail metrics.
-
 ## License
 
 Code is released under the MIT License. The Olist dataset remains subject to its Kaggle dataset terms.
