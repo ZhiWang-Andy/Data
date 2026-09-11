@@ -1,0 +1,22 @@
+project:
+  name: cloud-ecommerce-analytics
+  dataset_slug: olistbr/brazilian-ecommerce
+  timezone: UTC
+
+paths:
+  raw: data/raw
+  lakehouse: data/lakehouse
+  quality_report: artifacts/data_quality_report.json
+
+experiment:
+  name: checkout_reassurance_banner
+  seed: 20260910
+  allocation: 0.5
+  simulated_absolute_lift: 0.025
+  alpha: 0.05
+  minimum_detectable_effect: 0.015
+
+maintenance:
+  max_raw_age_hours: 720
+  retained_pipeline_runs: 20
+  fail_on_error: true

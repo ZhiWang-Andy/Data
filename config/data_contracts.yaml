@@ -1,0 +1,26 @@
+tables:
+  orders:
+    file: olist_orders_dataset.csv
+    primary_key: [order_id]
+    required_columns: [order_id, customer_id, order_status, order_purchase_timestamp]
+    allowed_order_status: [approved, canceled, created, delivered, invoiced, processing, shipped, unavailable]
+  order_items:
+    file: olist_order_items_dataset.csv
+    primary_key: [order_id, order_item_id]
+    required_columns: [order_id, order_item_id, product_id, seller_id, price, freight_value]
+  payments:
+    file: olist_order_payments_dataset.csv
+    primary_key: [order_id, payment_sequential]
+    required_columns: [order_id, payment_sequential, payment_type, payment_value]
+  customers:
+    file: olist_customers_dataset.csv
+    primary_key: [customer_id]
+    required_columns: [customer_id, customer_unique_id, customer_city, customer_state]
+  products:
+    file: olist_products_dataset.csv
+    primary_key: [product_id]
+    required_columns: [product_id, product_category_name]
+  reviews:
+    file: olist_order_reviews_dataset.csv
+    primary_key: [review_id]
+    required_columns: [review_id, order_id, review_score]
